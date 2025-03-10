@@ -44,12 +44,14 @@ posts = [
     },
 ]
 
+
 def index(request):
     """View-функция для главной страницы."""
     context = {
         'posts': reversed(posts),  # Посты в обратном порядке
     }
     return render(request, 'blog/index.html', context)
+
 
 def post_detail(request, id):
     """View-функция для страницы отдельной публикации."""
@@ -59,11 +61,12 @@ def post_detail(request, id):
         if post_item['id'] == id:
             post = post_item
             break
-    
+
     context = {
         'post': post,
     }
     return render(request, 'blog/detail.html', context)
+
 
 def category_posts(request, category_slug):
     """View-функция для страницы публикаций категории."""
