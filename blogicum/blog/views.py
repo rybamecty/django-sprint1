@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Список постов
 posts = [
     {
         'id': 0,
@@ -47,7 +47,7 @@ posts = [
 def index(request):
     """View-функция для главной страницы."""
     context = {
-        'posts': posts,
+        'posts': reversed(posts),  # Посты в обратном порядке
     }
     return render(request, 'blog/index.html', context)
 
@@ -71,5 +71,3 @@ def category_posts(request, category_slug):
         'category_slug': category_slug,
     }
     return render(request, 'blog/category.html', context)
-
-

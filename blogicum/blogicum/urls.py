@@ -24,4 +24,3 @@ urlpatterns = [
     # Маршруты blog
     path('', include('blog.urls', namespace='blog')),
 ]
-
