@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
-{% load static %}  
-
 {% block title %}
   Подробная информация
 {% endblock %}
 
 {% block content %}
-  <h1>Подробности о посте</h1>
-  {% include 'includes/post_card.html' with post=post %}
-  <p>{{ post.text|linebreaksbr }}</p> 
+  <article>
+    <ul>
+      <li>Место: {{ post.location }}</li>
+      <li>Дата: {{ post.date }}</li>
+      <li>Категория: <a href="{% url 'blog:category_posts' post.category %}">
+        {{ post.category }}</a></li>
+    </ul>
+    <p>{{ post.text|linebreaksbr }}</p> 
+  </article>
 {% endblock %}
+
