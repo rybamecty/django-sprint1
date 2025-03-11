@@ -77,9 +77,8 @@ def category_posts(request, category_slug):
     category_posts = [
         post for post in posts if post['category'] == category_slug]
 
-    # Если публикации не найдены, можно передать пустой список без 404 ошибки
     if not category_posts:
-        # Можно добавить сообщение о том, что публикации в данной категории отсутствуют
+        
         category_posts = []
 
     context = {
