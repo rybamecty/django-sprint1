@@ -78,7 +78,6 @@ def category_posts(request, category_slug):
         post for post in posts if post['category'] == category_slug]
 
     if not category_posts:
-        
         category_posts = []
 
     context = {
