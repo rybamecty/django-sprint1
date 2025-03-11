@@ -73,7 +73,6 @@ def post_detail(request, id):
 
 def category_posts(request, category_slug):
     """View-функция для страницы публикаций категории."""
-
     category_posts = [
         post for post in posts if post['category'] == category_slug]
 
