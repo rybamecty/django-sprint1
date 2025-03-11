@@ -19,8 +19,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Маршрут pages
+
     path('pages/', include('pages.urls', namespace='pages')),
-    # Маршруты blog
+
     path('', include('blog.urls', namespace='blog')),
 ]

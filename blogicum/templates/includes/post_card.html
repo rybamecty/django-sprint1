@@ -1,0 +1,7 @@
+<div class="post-card">
+  <h2>{{ post.title }}</h2>
+  <p><strong>Место:</strong> {{ post.location }}</p>
+  <p><strong>Дата:</strong> {{ post.date }}</p>
+  <p>{{ post.text|truncatewords:20 }}</p>
+  <a href="/posts/{{ post.id }}/">Читать полный текст</a>
+</div>
