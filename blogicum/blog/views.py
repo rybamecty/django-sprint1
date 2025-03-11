@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from django.http import Http404
 
 # Список постов
@@ -76,8 +77,10 @@ def category_posts(request, category_slug):
     category_posts = [
         post for post in posts if post['category'] == category_slug]
 
+    # Если публикации не найдены, можно передать пустой список без 404 ошибки
     if not category_posts:
-        raise Http404("The requested resource was not found on this server.")
+        # Можно добавить сообщение о том, что публикации в данной категории отсутствуют
+        category_posts = []
 
     context = {
         'category_slug': category_slug,
