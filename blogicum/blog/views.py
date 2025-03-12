@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
-# Список постов
+
 posts = [
     {
         'id': 0,
@@ -45,8 +45,7 @@ posts = [
     },
 ]
 
-# Преобразуем список в словарь для быстрого доступа
-posts_dict = {post['id']: post for post in posts}
+posts_by_id = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -59,7 +58,7 @@ def index(request):
 
 def post_detail(request, id):
     """View-функция для страницы отдельной публикации."""
-    post = posts_dict.get(id)
+    post = posts_by_id.get(id)
 
     if not post:
         raise Http404("The requested resource was not found on this server.")
@@ -77,6 +76,5 @@ def category_posts(request, category_slug):
 
     context = {
         'category_slug': category_slug,
-        'posts': filtered_posts,
     }
     return render(request, 'blog/category.html', context)
